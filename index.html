@@ -29,17 +29,18 @@
   <script src="js/lib/jquery.mobile.js"></script>
 
   </head>
-  <body>
+  <body style="height: 100%">
     
-    <div data-role="page">
+    <div data-role="page" style="height: 100%">
 
     	<div data-role="header">
     		<h1>Single page</h1>
     	</div><!-- /header -->
 <button type="button" onclick="onDeviceReady()">Display location info</button>
-    	<div data-role="content">
+    	<div data-role="content" style="height: 100%">
             <p id="geolocation">
                 Click the button to display your location information
+                <iframe src = "https://maps.google.com/maps?q=LAT,LON&hl=es;z=14&amp;output=embed" frameborder="0" style="height:100%; width:100%"></iframe>
             </p>
     	</div><!-- /content -->
 
