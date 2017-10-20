@@ -11,12 +11,15 @@ function checkEnabled(){
 function onDeviceReady() {
     if (document.getElementById('bt').innerHTML=="Display location info") {
         document.getElementById('bt').innerHTML="Hide location";
+        document.getElementById('mes').innerHTML="Hold on a bit, we are getting you location...";
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     }
     else{
         document.getElementById('bt').innerHTML="Display location info";
-        document.getElementById('geolocation').innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q=,&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:-webkit-fill-available; height:100%; width:100%\"><\/iframe>";
+        document.getElementById('mes').innerHTML="hiding your location....";
+        document.getElementById('geolocation').innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q=,&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:-webkit-fill-available; width:100%\"><\/iframe>";
+        document.getElementById('mes').innerHTML="You are now hidden";
     }
     
 }
@@ -26,7 +29,8 @@ function onDeviceReady() {
 function onSuccess(position) {
 
     var element = document.getElementById('geolocation');
-    element.innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q="+position.coords.latitude+","+position.coords.longitude+"&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:-webkit-fill-available; height:100%; width:100%\"><\/iframe>";
+    element.innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q="+position.coords.latitude+","+position.coords.longitude+"&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:-webkit-fill-available; width:100%\"><\/iframe>";
+    document.getElementById('mes').innerHTML="Here we are!";
 }
 
 // onError Callback receives a PositionError object
@@ -38,16 +42,15 @@ function onError(error) {
 //Opens phone gps settings to attept to manually turn on the gps
 function openSettings(){
 if (window.cordova && window.cordova.plugins.settings) {
-    alert('openNativeSettingsTest is active');
     window.cordova.plugins.settings.open("wifi", function() {
-            alert('opened settings');
+
         },
         function () {
-            alert('failed to open settings');
+
         }
     );
 } else {
-    alert('openNativeSettingsTest is not active!');
+
 }
 }
 
