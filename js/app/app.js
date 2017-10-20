@@ -7,13 +7,10 @@ document.addEventListener("deviceready", checkEnabled, false);
 
 // Checks to see if GPS is enabled AND if the app is authorized
 function checkEnabled(){
-    cordova.plugins.diagnostic.isLocationAvailable(
-      (available) => { onSuccess(available); },
-      (error) => { goToSettings(error); }
-    );
+    cordova.plugins.diagnostic.isLocationAvailable(successCallback, errorCallback);
 }
 
-function onSuccess(available) {
+function successCallback(available) {
   if(available) {
     //Do nothing
   }
@@ -22,8 +19,7 @@ function onSuccess(available) {
 
 // Output error to console
 // Prompt user to enable GPS, on OK switch to phone settings
-function goToSettings(error) {
-  console.log("error: ", error);
+function errorCallback(error) {
   if(window.confirm("You need to enable location settings to use the geolocation feature.")) {
     cordova.plugins.diagnostic.switchToSettings();
   }
