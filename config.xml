@@ -39,9 +39,11 @@
 
     <!-- Core plugins -->
     <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova plugin add cordova.plugins.diagnostic" />
+    <plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
+    <icon src="res/icon/loc.png" />
     <icon src="res/icon/loc.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/loc.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/loc.png"   gap:platform="android"    gap:qualifier="hdpi" />
