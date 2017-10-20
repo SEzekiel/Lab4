@@ -2,15 +2,16 @@
 // to add this function to the list of native javascript functions to allow javascript identify and execute it each time its called.
 // This is done by using the addEventListener() function.
 //
-document.addEventListener("deviceready", checkEnabled, false);
+//document.addEventListener("deviceready", checkEnabled, false);
 
 
 // Checks to see if GPS is enabled AND if the app is authorized
 function checkEnabled(){
-    cordova.plugins.diagnostic.isLocationAvailable(successCallback, errorCallback);
+    navigator.geolocation.getCurrentPosition(doNothing, onError);
+    //cordova.plugins.diagnostic.isLocationAvailable(successCallback, errorCallback);
 }
 
-function successCallback(available) {
+/*function successCallback(available) {
   if(available) {
     //Do nothing
   }
@@ -23,7 +24,7 @@ function errorCallback(error) {
   if(window.confirm("You need to enable location settings to use the geolocation feature.")) {
     cordova.plugins.diagnostic.switchToSettings();
   }
-}
+}*/
 
 
 
@@ -38,22 +39,33 @@ function onDeviceReady() {
 function onSuccess(position) {
 
     var element = document.getElementById('geolocation');
-    // element.innerHTML = 'Latitude: ' + position.coords.latitude  + '<br />' +
-    //     'Longitude: '          + position.coords.longitude             + '<br />' +
-    //     'Altitude: '           + position.coords.altitude              + '<br />' +
-    //     'Accuracy: '           + position.coords.accuracy              + '<br />' +
-    //     'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-    //     'Heading: '            + position.coords.heading               + '<br />' +
-    //     'Speed: '              + position.coords.speed                 + '<br />' +
-    //     'Timestamp: '          + position.timestamp          + '<br />';
-
-
     element.innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q="+position.coords.latitude+","+position.coords.longitude+"&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:100%; width:100%\"><\/iframe>";
 }
 
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-        'message: ' + error.message + '\n');
+    //alert('code: '    + error.code    + '\n' +
+        //'message: ' + error.message + '\n');
+        openSettings();
+}
+
+
+function openSettings(){
+if (window.cordova && window.cordova.plugins.settings) {
+    console.log('openNativeSettingsTest is active');
+    window.cordova.plugins.settings.open("wifi", function() {
+            console.log('opened settings');
+        },
+        function () {
+            console.log('failed to open settings');
+        }
+    );
+} else {
+    console.log('openNativeSettingsTest is not active!');
+}
+}
+
+function doNothing() {
+    //Do nothing
 }
