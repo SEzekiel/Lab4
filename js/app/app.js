@@ -11,7 +11,7 @@ function checkEnabled(){
 function onDeviceReady() {
     if (document.getElementById('bt').innerHTML=="Display location info") {
         document.getElementById('bt').innerHTML="Hide location";
-        document.getElementById('mes').innerHTML="Hold on a bit, we are getting you location...";
+        document.getElementById('mes').innerHTML="Hold on a bit, we are getting your location...";
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     }
@@ -36,23 +36,10 @@ function onSuccess(position) {
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-        openSettings();
+    document.getElementById('mes').innerHTML="Oops! Your location is disabled please enable location in phone settings";
 }
 
-//Opens phone gps settings to attept to manually turn on the gps
-function openSettings(){
-if (window.cordova && window.cordova.plugins.settings) {
-    window.cordova.plugins.settings.open("wifi", function() {
-
-        },
-        function () {
-
-        }
-    );
-} else {
-
-}
-}
+//Opens phone gps settings to attept to manually turn on the gp
 
 function doNothing() {
     //Do nothing
