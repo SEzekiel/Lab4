@@ -2,7 +2,33 @@
 // to add this function to the list of native javascript functions to allow javascript identify and execute it each time its called.
 // This is done by using the addEventListener() function.
 //
-//document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", checkEnabled, false);
+
+
+// Checks to see if GPS is enabled AND if the app is authorized
+function checkEnabled(){
+    cordova.plugins.diagnostic.isLocationAvailable(
+      (available) => { onSuccess(available); },
+      (error) => { goToSettings(error); }
+    );
+}
+
+function onSuccess(available) {
+  if(available) {
+    //Do nothing
+  }
+  else goToSettings(available);
+}
+
+// Output error to console
+// Prompt user to enable GPS, on OK switch to phone settings
+function goToSettings(error) {
+  console.log("error: ", error);
+  if(window.confirm("You need to enable location settings to use the geolocation feature.")) {
+    cordova.plugins.diagnostic.switchToSettings();
+  }
+}
+
 
 
 //We decide to create a function to handle the 3rd party functions (eg. navigator.geolocation.getCurrentPosition)
