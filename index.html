@@ -29,25 +29,21 @@
   <script src="js/lib/jquery.mobile.js"></script>
 
   </head>
-  <body style="height: 100%" onload="checkEnabled()">
-    
-    <div data-role="page" style="height: 100%">
+  <body onload="checkEnabled()">
 
     	<div data-role="header">
-    		<h1>Single page</h1>
+    		<h1>LocateMe</h1>
     	</div><!-- /header -->
-<button type="button" onclick="onDeviceReady()">Display location info</button>
-    	<div data-role="content" style="height: 100%">
+<div id="bt" onclick="onDeviceReady()" style="width: 100%; text-align: center; height: 35px; background-color: lightblue; padding-top: 15px; font-size: 14px;">Display location info</div>
+<p></p>
             <p id="geolocation">
                 This is not you location. Click the button to display current your location information
-                <iframe src = "https://maps.google.com/maps?q=3.1273,&hl=es;z=14&amp;output=embed" frameborder="0" style="height:100%; width:100%"></iframe>
+                <iframe src = "https://maps.google.com/maps?q=3.1273,&hl=es;z=14&amp;output=embed" frameborder="0" style="height:-webkit-fill-available; width:100%"></iframe>
             </p>
-    	</div><!-- /content -->
 
     	<div data-role="footer">
-    		<h4>Footer content</h4>
+    		<h4>&copy; Ezekiel Sebastine</h4>
     	</div><!-- /footer -->
 
-    </div><!-- /page -->
   </body>
 </html>
