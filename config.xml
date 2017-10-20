@@ -39,7 +39,7 @@
 
     <!-- Core plugins -->
     <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova.plugins.diagnostic" />
+    <plugin name="cordova-plugin-native-settings" />
     <plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 
     <!-- Define app icon for each platform. -->
