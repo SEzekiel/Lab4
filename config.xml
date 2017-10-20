@@ -38,7 +38,7 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
-    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-geolocation" source="npm"/>
     <plugin name="cordova plugin add cordova.plugins.diagnostic" />
     <plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 
