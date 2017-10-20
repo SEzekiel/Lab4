@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8">
-  <title>Map</title>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-
-  <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
-  <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
-  
-  <script>
+    <meta charset="utf-8">
+    <title>Map</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+    
+    <script>
     var userAgent = navigator.userAgent + '';
     if (userAgent.indexOf('iPhone') > -1) {
-      document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
-      var mobile_system = 'iphone';
+    document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+    var mobile_system = 'iphone';
     } else if (userAgent.indexOf('Android') > -1) {
-      document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
-      var mobile_system = 'android';
+    document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+    var mobile_system = 'android';
     } else {
-      var mobile_system = '';
+    var mobile_system = '';
     }
-  </script>
-  
-  <script src="js/lib/jquery.js"></script>
-  <!-- your scripts here -->
-  <script src="js/app/app.js"></script>
-  <script src="js/app/bootstrap.js"></script>
-  <script src="js/lib/jquery.mobile.js"></script>
-
+    </script>
+    
+    <script src="js/lib/jquery.js"></script>
+    <!-- your scripts here -->
+    <script src="js/app/app.js"></script>
+    <script src="js/app/bootstrap.js"></script>
+    <script src="js/lib/jquery.mobile.js"></script>
   </head>
   <body onload="checkEnabled()">
-
-    	<div data-role="header">
-    		<h1>LocateMe</h1>
-    	</div><!-- /header -->
-<div id="bt" onclick="onDeviceReady()" style="width: 100%; text-align: center; height: 35px; background-color: lightblue; padding-top: 15px; font-size: 14px;">Display location info</div>
-<p></p>
-            <p id="geolocation">
-                This is not you location. Click the button to display current your location information
-                <iframe src = "https://maps.google.com/maps?q=3.1273,&hl=es;z=14&amp;output=embed" frameborder="0" style="height:-webkit-fill-available; width:100%"></iframe>
-            </p>
-
-    	<div data-role="footer">
-    		<h4>&copy; Ezekiel Sebastine</h4>
-    	</div><!-- /footer -->
-
-  </body>
-</html>
+    <div data-role="header">
+      <h1>LocateMe</h1>
+      </div><!-- /header -->
+      <div id="bt" onclick="onDeviceReady()" style="width: 100%; text-align: center; height: 35px; background-color: lightblue; padding-top: 15px; font-size: 14px;">Display location info</div>
+      <p id="mes">
+        
+      </p>
+      <p id="geolocation">
+        This is not your location. Click the button to display current your location information
+        <iframe src = "https://maps.google.com/maps?q=3.1273,&hl=es;z=14&amp;output=embed" frameborder="0" style="height:-webkit-fill-available; width:100%"></iframe>
+      </p>
+      <div data-role="footer">
+        <h4>&copy; Ezekiel Sebastine</h4>
+        </div><!-- /footer -->
+      </body>
+    </html>
