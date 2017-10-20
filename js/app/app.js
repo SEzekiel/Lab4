@@ -26,7 +26,7 @@ function onSuccess(position) {
     //     'Timestamp: '          + position.timestamp          + '<br />';
 
 
-    element.innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q="+position.coords.latitude+","+position.coords.longitude+"&hl=es;z=14&amp;output=embed\"><\/iframe>";
+    element.innerHTML = "<iframe src = \"https:\/\/maps.google.com\/maps?q="+position.coords.latitude+","+position.coords.longitude+"&hl=es;z=14&amp;output=embed\" frameborder=\"0\" style=\"height:100%; width:100%\"><\/iframe>";
 }
 
 // onError Callback receives a PositionError object
